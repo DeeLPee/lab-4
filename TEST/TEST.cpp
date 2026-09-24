@@ -14,7 +14,6 @@ int main()
 
 	char itemCode;
 	cout << "What is the item code letter? ";
-	//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	cin >> itemCode;
 
 	int quantity;
