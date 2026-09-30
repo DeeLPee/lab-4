@@ -2,19 +2,123 @@
 #include <string>
 #include <iomanip>
 #include <limits>
+#include <cctype>
 using namespace std;
 
 
 int main()
 {
-	string foodName;
-	cout << "What would you like to eat? ";
-	getline(cin, foodName);
-	
 
-	char itemCode;
-	cout << "What is the item code letter? ";
-	cin >> itemCode;
+
+	string foodName;
+	string size;
+	char choice;
+	cout << left;
+	cout << "Please select one of these four snacks: " << endl;
+	cout << setw(12) << "Snacks         " << "    Small (s)" << "     Medium (m)" << "     Large (l)" << endl;
+	cout << setw(12) << "A. Chips       " << "    $2.99" << "         $3.99" << "          $5.99" << endl;
+	cout << setw(12) << "B. Cookies     " << "    $3.99" << "         $5.99" << "          $7.99" << endl;
+	cout << setw(12) << "C. Pretzels    " << "    $5.99" << "         $8.99" << "          $9.99" << endl;
+	cout << setw(12) << "D. Fruit Snacks    " << "$1.99" << "         $3.99" << "          $7.99" << endl;
+	cout << "What would you like to eat? ";
+	cin >> choice;
+	char choiceS;
+	double price;
+
+	switch (toupper(choice))
+	{
+	case 'A':
+		foodName = "Chips";
+		cout << "What size would you like (s, m, l)? ";
+		cin >> choiceS;
+		switch (toupper(choiceS))
+		{
+		case 'S':
+			size = "Small";
+			price = 2.99;
+			break;
+		case 'M':
+			size = "Medium";
+			price = 3.99;
+			break;
+		case 'L':
+			size = "Large";
+			price = 5.99;
+			break;
+		}
+
+		break;
+	case 'B':
+		foodName = "Cookies";
+		cout << "What size would you like (s, m, l)? ";
+		cin >> choiceS;
+		switch (toupper(choiceS))
+		{
+		case 'S':
+			size = "Small";
+			price = 3.99;
+			break;
+		case 'M':
+			size = "Medium";
+			price = 5.99;
+			break;
+		case 'L':
+			size = "Large";
+			price = 7.99;
+			break;
+		}
+
+		break;
+	case 'C':
+		foodName = "Pretzels";
+		cout << "What size would you like (s, m, l)? ";
+		cin >> choiceS;
+		switch (toupper(choiceS))
+		{
+		case 'S':
+			size = "Small";
+			price = 5.99;
+			break;
+		case 'M':
+			size = "Medium";
+			price = 8.99;
+			break;
+		case 'L':
+			size = "Large";
+			price = 9.99;
+			break;
+		}
+
+		break;
+	case 'D':
+		foodName = "Fruit Snacks";
+		cout << "What size would you like (s, m, l)? ";
+		cin >> choiceS;
+		switch (toupper(choiceS))
+		{
+		case 'S':
+			size = "Small";
+			price = 1.99;
+			break;
+		case 'M':
+			size = "Medium";
+			price = 3.99;
+			break;
+		case 'L':
+			size = "Large";
+			price = 7.99;
+			break;
+		}
+
+		break;
+	default:
+		cout << "You failed to pick a correct menu option, try again." << endl;
+		break;
+	}
+	cout << left;
+	cout << setw(20) << "Food = " << foodName << endl;
+	cout << setw(20) << "Size = " << size << endl;
+	cout << setw(20) << "Price = " << fixed << setprecision(2) << "$" << price << endl;
 
 	int quantity;
 	cout << "How many? ";
@@ -22,15 +126,13 @@ int main()
 
 
 	double unitPrice;
-	cout << "What is the cost? ";
-	cin >> unitPrice;
+	unitPrice = price;
 
 	char member;
 	cout << "Are you a member (y/n)? ";
 	cin >> member;
 	cout << left;
 	cout << setw(27) << "Food =  " << foodName << std::endl;
-	cout << setw(27) << "Item Code = " << itemCode << std::endl;
 	cout << setw(27) << "Quantity = " << quantity << endl;
 	cout << setw(27) << "Unit Price = " << fixed << setprecision(2) << "$" << unitPrice << endl;
 	cout << setw(27) << "Member = " <<  member << std::endl;
@@ -55,8 +157,7 @@ int main()
 
 	//cout << left << setw(20) << "Food Name" << setw(12) << "Code" << right << setw(10) << "Quantity" << setw(15) << "UnitPrice" << setw(20) << "Total(Without Tax)" << endl;
 	cout << left;
-	cout << setw(27) << "Food =  " << foodName << std::endl;
-	cout << setw(27) << "Item Code = " << itemCode << std::endl;
+	cout << setw(27) << "Food =  " << foodName << endl;
 	cout << setw(27) << "Quantity = " << quantity << endl;
 	cout << setw(27) << "Unit Price = " << fixed << setprecision(2) << "$" << unitPrice << endl;
 	if (member == 'y') {
@@ -67,7 +168,7 @@ int main()
 	cout << " ===============================================================================================\n";
 
 	cout << "\n\n========================= INVENTORY AUDIT ===========================\n";
-	cout << left << setw(20) << "Food Name" << setw(12) << "Code" << right << setw(12) << "Quantity" << setw(15) << "Unit Price" << endl;
+	cout << left << setw(20) << "Food Name" << setw(12) << "Quantity" << setw(15) << "Unit Price" << endl;
 	cout << "---------------------------------------------------------------------\n";
-	cout << left << setw(20) << foodName << setw(12) << itemCode << right << setw(12) << quantity << setw(15) << fixed << setprecision(2) << unitPrice << endl;
+	cout << left << setw(20) << foodName << setw(12)  << quantity << setw(15) << fixed << setprecision(2) << unitPrice << endl;
 }
