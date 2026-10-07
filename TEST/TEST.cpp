@@ -13,112 +13,132 @@ int main()
 	string foodName;
 	string size;
 	char choice;
-	cout << left;
-	cout << "Please select one of these four snacks: " << endl;
-	cout << setw(12) << "Snacks         " << "    Small (s)" << "     Medium (m)" << "     Large (l)" << endl;
-	cout << setw(12) << "A. Chips       " << "    $2.99" << "         $3.99" << "          $5.99" << endl;
-	cout << setw(12) << "B. Cookies     " << "    $3.99" << "         $5.99" << "          $7.99" << endl;
-	cout << setw(12) << "C. Pretzels    " << "    $5.99" << "         $8.99" << "          $9.99" << endl;
-	cout << setw(12) << "D. Fruit Snacks    " << "$1.99" << "         $3.99" << "          $7.99" << endl;
-	cout << "What would you like to eat? ";
-	cin >> choice;
+	bool running;
+	running = true;
 	char choiceS;
 	double price;
 
-	switch (toupper(choice))
-	{
-	case 'A':
-		foodName = "Chips";
-		cout << "What size would you like (s, m, l)? ";
-		cin >> choiceS;
-		switch (toupper(choiceS))
+	while (running) {
+
+
+		cout << left;
+		cout << "Please select one of these four snacks: " << endl;
+		cout << setw(12) << "Snacks         " << "    Small (s)" << "     Medium (m)" << "     Large (l)" << endl;
+		cout << setw(12) << "A. Chips       " << "    $2.99" << "         $3.99" << "          $5.99" << endl;
+		cout << setw(12) << "B. Cookies     " << "    $3.99" << "         $5.99" << "          $7.99" << endl;
+		cout << setw(12) << "C. Pretzels    " << "    $5.99" << "         $8.99" << "          $9.99" << endl;
+		cout << setw(12) << "D. Fruit Snacks    " << "$1.99" << "         $3.99" << "          $7.99" << endl;
+		cout << "E. Checkout" << endl;
+		cout << "What would you like to eat? ";
+		cin >> choice;
+		
+
+		switch (toupper(choice))
 		{
-		case 'S':
-			size = "Small";
-			price = 2.99;
+		case 'A':
+			foodName = "Chips";
+			cout << "What size would you like (s, m, l)? ";
+			cin >> choiceS;
+			switch (toupper(choiceS))
+			{
+			case 'S':
+				size = "Small";
+				price = 2.99;
+				break;
+			case 'M':
+				size = "Medium";
+				price = 3.99;
+				break;
+			case 'L':
+				size = "Large";
+				price = 5.99;
+				break;
+			}
+
 			break;
-		case 'M':
-			size = "Medium";
-			price = 3.99;
+		case 'B':
+			foodName = "Cookies";
+			cout << "What size would you like (s, m, l)? ";
+			cin >> choiceS;
+			switch (toupper(choiceS))
+			{
+			case 'S':
+				size = "Small";
+				price = 3.99;
+				break;
+			case 'M':
+				size = "Medium";
+				price = 5.99;
+				break;
+			case 'L':
+				size = "Large";
+				price = 7.99;
+				break;
+			}
+
 			break;
-		case 'L':
-			size = "Large";
-			price = 5.99;
+		case 'C':
+			foodName = "Pretzels";
+			cout << "What size would you like (s, m, l)? ";
+			cin >> choiceS;
+			switch (toupper(choiceS))
+			{
+			case 'S':
+				size = "Small";
+				price = 5.99;
+				break;
+			case 'M':
+				size = "Medium";
+				price = 8.99;
+				break;
+			case 'L':
+				size = "Large";
+				price = 9.99;
+				break;
+			}
+
+			break;
+		case 'D':
+			foodName = "Fruit Snacks";
+			cout << "What size would you like (s, m, l)? ";
+			cin >> choiceS;
+			switch (toupper(choiceS))
+			{
+			case 'S':
+				size = "Small";
+				price = 1.99;
+				break;
+			case 'M':
+				size = "Medium";
+				price = 3.99;
+				break;
+			case 'L':
+				size = "Large";
+				price = 7.99;
+				break;
+			}
+
+			break;
+
+		case'E':
+			cout << "Alright, moving to checkout." << endl;
+			running = false;
+			break;
+
+		default:
+			cout << "You failed to pick a correct menu option, try again." << endl;
 			break;
 		}
+		cout << left;
+		cout << setw(20) << "Food = " << foodName << endl;
+		cout << setw(20) << "Size = " << size << endl;
+		cout << setw(20) << "Price = " << fixed << setprecision(2) << "$" << price << endl;
 
-		break;
-	case 'B':
-		foodName = "Cookies";
-		cout << "What size would you like (s, m, l)? ";
-		cin >> choiceS;
-		switch (toupper(choiceS))
-		{
-		case 'S':
-			size = "Small";
-			price = 3.99;
-			break;
-		case 'M':
-			size = "Medium";
-			price = 5.99;
-			break;
-		case 'L':
-			size = "Large";
-			price = 7.99;
-			break;
-		}
-
-		break;
-	case 'C':
-		foodName = "Pretzels";
-		cout << "What size would you like (s, m, l)? ";
-		cin >> choiceS;
-		switch (toupper(choiceS))
-		{
-		case 'S':
-			size = "Small";
-			price = 5.99;
-			break;
-		case 'M':
-			size = "Medium";
-			price = 8.99;
-			break;
-		case 'L':
-			size = "Large";
-			price = 9.99;
-			break;
-		}
-
-		break;
-	case 'D':
-		foodName = "Fruit Snacks";
-		cout << "What size would you like (s, m, l)? ";
-		cin >> choiceS;
-		switch (toupper(choiceS))
-		{
-		case 'S':
-			size = "Small";
-			price = 1.99;
-			break;
-		case 'M':
-			size = "Medium";
-			price = 3.99;
-			break;
-		case 'L':
-			size = "Large";
-			price = 7.99;
-			break;
-		}
-
-		break;
-	default:
-		cout << "You failed to pick a correct menu option, try again." << endl;
-		break;
 	}
-	cout << left;
-	cout << setw(20) << "Food = " << foodName << endl;
-	cout << setw(20) << "Size = " << size << endl;
-	cout << setw(20) << "Price = " << fixed << setprecision(2) << "$" << price << endl;
+
+	string name;
+	cout << "What's your name? ";
+	cin >> name;
 
 	int quantity;
 	cout << "How many? ";
@@ -239,13 +259,14 @@ int main()
 
 	//cout << left << setw(20) << "Food Name" << setw(12) << "Code" << right << setw(10) << "Quantity" << setw(15) << "UnitPrice" << setw(20) << "Total(Without Tax)" << endl;
 	cout << left;
+	cout << setw(27) << "Name = " << name << endl;
 	cout << setw(27) << "Food =  " << foodName << endl;
 	cout << setw(27) << "Quantity = " << quantity << endl;
 	cout << setw(27) << "Unit Price = " << fixed << setprecision(2) << "$" << unitPrice << endl;
 	if (member == 'y') {
 		cout << "Thank you for being a member! You get 10% off." << endl;
 	}
-	cout << setw(27) << "Total (Without Tax) = " << fixed << setprecision(2) << "$" << total << std::endl;
+	cout << setw(27) << "Total = " << fixed << setprecision(2) << "$" << total << std::endl;
 
 	cout << " ===============================================================================================\n";
 
